@@ -31,5 +31,10 @@
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
+  <?php 
+  if($this->aauth->is_admin()){
+  	echo '<li><a href="">UserManagement</a></li>';
+	}
+   ?>
 </ul>
 	
