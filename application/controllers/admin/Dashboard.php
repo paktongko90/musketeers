@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function index(){
 			if($this->aauth->is_loggedin()){
-				//echo "Dashboard";
 				$this->loadTemplate($this->layout.'dashboard');
 			}else{
 				$this->sendToLoginPage();
