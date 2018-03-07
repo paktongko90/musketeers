@@ -16,7 +16,7 @@
 
 		public function Create(){
 			if( $this->aauth->is_allowed('CREATE_USER',$this->getCurrentUserId())){
-				echo $this->getCurrentUserId();
+				echo $this->aauth->get_perm_id('CREATE_USER');
 				echo '<br>tak boleh view';
 			}else{
 				$this->loadTemplate($this->layout.'/create_user');
