@@ -1,4 +1,4 @@
-<h1>LIST of User</h1>
+<h4>List of user</h4>
 
 <table border="1" allign="center" cellspacing= "0" cellpading="0">
 	<tr><th>Email</th><th>Usename</th><th>Action</th></tr>
@@ -19,13 +19,21 @@
 				?>		
 			</a>
 		</td>
-
 	</tr>
 	<?php } ?>
 </table>
+<a href='<?php echo base_url('admin/user/create'); ?>' type="button" class="btn btn-default">Create User</a>
 <?php 
 	/*$id = $this->aauth->get_user();
 	foreach ($id as $userid) {
 		echo $userid;
 	}*/
  ?>
+
+ <?php 
+ 	/*if(! $this->aauth->is_allowed('USER_MANAGEMEN',$this->aauth->get_user()->id)){
+		echo 'tidak boleh view';
+	}else{
+		echo 'boleh view';
+	}*/
+  ?>

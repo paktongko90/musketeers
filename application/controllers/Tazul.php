@@ -8,7 +8,9 @@
 		}
 
 		public function faizul(){
-			echo 'Faizul';
+			$name = 'faizul';
+
+			echo $name;
 		}
 	}
  ?>
