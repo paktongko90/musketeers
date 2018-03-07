@@ -6,6 +6,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->library("Aauth");
+			$this->load->model('User_Model');
 		}
 	}
 
@@ -29,6 +30,14 @@
 
 	protected function sendToLoginPage(){
 		redirect('admin/login');
+	}
+
+	protected function getCurrentUserID(){
+		if($this->aauth->is_loggedin()){
+			return $this->aauth->get_user()->id;
+		}else{
+			$this->sendToLoginPage();
+		}
 	}
 }
 
