@@ -51,9 +51,5 @@
 				}
 			}
 		}
-
-		public function test(){
-			
-		}
 	}
  ?>
