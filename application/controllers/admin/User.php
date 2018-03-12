@@ -56,7 +56,8 @@
 			if(! $this->aauth->is_allowed('DELETE_USER',$this->getCurrentUserId())){
 				echo "you dont have permission";
 			}else{
-				echo "delete user";
+				$this->db->delete('users',array('id' => $this->uri->segment(4)));
+				redirect('admin/user');
 			}
 		}
 	}
