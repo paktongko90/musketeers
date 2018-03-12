@@ -6,7 +6,7 @@
 
 		public function index(){
 			if($this->aauth->is_loggedin()){
-				if(!$this->aauth->is_allowed('CREATE_USER',$this->getCurrentUserId())){
+				if(!$this->aauth->is_allowed('VIEW_USER',$this->getCurrentUserId())){
 					$this->sendToLoginPage();
 				}else{
 					$users = $this->User_Model->all();
@@ -49,6 +49,14 @@
 						echo '<br><a href ="create">Back</a>';
 					}
 				}
+			}
+		}
+
+		public function deleteUser(){
+			if(! $this->aauth->is_allowed('DELETE_USER',$this->getCurrentUserId())){
+				echo "you dont have permission";
+			}else{
+				echo "delete user";
 			}
 		}
 	}
