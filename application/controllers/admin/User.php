@@ -6,11 +6,13 @@
 
 		public function index(){
 			if($this->aauth->is_loggedin()){
-				$users = $this->User_Model->all();
-				$currentuser = $this->getCurrentUserId();
-				//echo $currentuser;
-				//$this->loadTemplate($this->layout.'/index',array('users' => $user),'currentuser');
-				$this->loadTemplate($this->layout.'/index',compact('users','currentuser'));
+				if(!$this->aauth->is_allowed('CREATE_USER',$this->getCurrentUserId())){
+					$this->sendToLoginPage();
+				}else{
+					$users = $this->User_Model->all();
+					$currentuser = $this->getCurrentUserId();
+					$this->loadTemplate($this->layout.'/index',compact('users','currentuser'));
+				}
 			}else{
 				$this->sendToLoginPage();
 			}
@@ -29,6 +31,24 @@
 				echo "you dont have permission";
 			}else{
 				$this->load->library('form_validation');
+
+				$this->form_validation->set_rules('email','Email','required');
+				$this->form_validation->set_rules('username','Username','required');
+				$this->form_validation->set_rules('password','Password','required');
+				$this->form_validation->set_rules('repassword','Password','required');
+
+				if(! $this->form_validation->run()){
+					$this->session->set_flashdata('_error','All field are required');
+					redirect('/admin/user/create');
+				}else{
+					if($this->aauth->create_user($this->input->post('email'),$this->input->post('password'),$this->input->post('username'))){
+						$this->session->set_flashdata('_success','User created');
+						redirect('/admin/user');
+					}else{
+						$this->aauth->print_errors();
+						echo '<br><a href ="create">Back</a>';
+					}
+				}
 			}
 		}
 	}
