@@ -22,7 +22,7 @@
 		$this->load->view($this->footer);
 	}
 
-	protected function loadTemplate($template,$data = array()){
+	protected function loadTemplate($template,$data = array(),$userid = NULL){
 		$this->loadHeader();
 		$this->load->view($template,$data,$data);
 		$this->loadFooter();

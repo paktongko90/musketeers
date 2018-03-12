@@ -24,13 +24,13 @@
 	Username : <?php echo $this->aauth->get_user()->username; ?>
 <ul>
 	
-  <li><a href="dashboard">Home</a></li>
+  <li><a href="<?php echo site_url('admin/dashboard'); ?>">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
   <?php 
   if($this->aauth->is_admin()){
-  	echo '<li><a href="user">User</a></li>';
+  	echo '<li><a href="'.base_url('admin/user').'">User</a></li>';
 	}
    ?>
 </ul>

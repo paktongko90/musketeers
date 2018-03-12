@@ -29,11 +29,10 @@
 		echo $userid;
 	}*/
  ?>
-
  <?php 
- 	/*if(! $this->aauth->is_allowed('USER_MANAGEMEN',$this->aauth->get_user()->id)){
+ 	if(!$this->aauth->is_allowed('CREATE_USER',$currentuser)){
 		echo 'tidak boleh view';
 	}else{
 		echo 'boleh view';
-	}*/
+	}
   ?>
