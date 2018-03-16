@@ -4,9 +4,9 @@
 	<title></title>
 
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="<?php echo base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/plugins/morris.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <style>
 		ul {
 		    list-style-type: none;
@@ -31,6 +31,11 @@
   <?php 
   if($this->aauth->is_admin()){
   	echo '<li><a href="'.base_url('admin/user').'">User</a></li>';
+	}
+   ?>
+   <?php 
+  if($this->aauth->is_admin()){
+  	echo '<li><a href="'.base_url('admin/authorization').'">Authorization</a></li>';
 	}
    ?>
 </ul>
