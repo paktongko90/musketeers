@@ -21,22 +21,20 @@
    
 </head>
 <body style="background: #F8F8FF">
-	Username : <?php echo $this->aauth->get_user()->username; ?>
-<ul>
-	
-  <li><a href="<?php echo site_url('admin/dashboard'); ?>">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-  <?php 
-  if($this->aauth->is_admin()){
-  	echo '<li><a href="'.base_url('admin/user').'">User</a></li>';
-	}
-   ?>
-   <?php 
-  if($this->aauth->is_admin()){
-  	echo '<li><a href="'.base_url('admin/authorization').'">Authorization</a></li>';
-	}
-   ?>
-</ul>
-	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+	  <a class="navbar-brand" href="<?php echo site_url('admin/dashboard'); ?>"><?php echo $this->aauth->get_user()->username; ?>'s Dashboard</a>
+	  <ul class="navbar-nav">
+	  	<?php 
+	  	if($this->aauth->is_admin()){
+	  		echo '<li class ="nav-item">
+	  		<a class ="nav-link" href="'.base_url('admin/user').'">User</a>
+	  		</li>';
+		}
+		if($this->aauth->is_admin()){
+	  		echo '<li class ="nav-item">
+	  		<a class ="nav-link" href="'.base_url('admin/authorization').'">Authorization</a>
+	  		</li>';
+		}
+	   ?>
+	  </ul>
+	</nav>
