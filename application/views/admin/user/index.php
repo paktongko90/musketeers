@@ -30,7 +30,7 @@
 	}*/
  ?>
  <?php 
- 	if(!$this->aauth->is_allowed('CREATE_USER',$currentuser)){
+ 	if(!$this->aauth->is_allowed('USER_MANAGEMENT',$currentuser)){
 		echo 'tidak boleh view';
 	}else{
 		echo 'boleh view';
