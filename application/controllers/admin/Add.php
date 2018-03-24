@@ -4,7 +4,7 @@
 	class Add extends Admin_Controller{
 
 		public function create_user(){
-			if($this->aauth->create_user('Jamal@jamal.com', 'password', 'Jamal')){
+			if($this->aauth->create_user('admin@admin.com', 'password', 'Jamal')){
 				echo "success create user";
 			}else{
 				echo "not success";
@@ -45,8 +45,8 @@
 		}
 
 		public function add_perm_user(){
-			if($this->aauth->allow_user('2','2')){
-				echo "success ad permission to user"
+			if($this->aauth->allow_user('1','1')){
+				echo "success ad permission to user";
 			}else{
 				echo "not success";
 			}
