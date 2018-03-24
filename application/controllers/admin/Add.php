@@ -29,7 +29,7 @@
 		}
 
 		public function create_perms(){
-			if($this->aauth->create_perm('VIEW_USER','view all user')){
+			if($this->aauth->create_perm('CREATE_USER','view all user')){
 				echo "success create permission";
 			}else{
 				echo "not success";
@@ -39,6 +39,14 @@
 		public function add_perm_group(){
 			if($this->aauth->allow_group('2','2')){
 				echo "success add permission to group";
+			}else{
+				echo "not success";
+			}
+		}
+
+		public function add_perm_user(){
+			if($this->aauth->allow_user('2','2')){
+				echo "success ad permission to user"
 			}else{
 				echo "not success";
 			}
