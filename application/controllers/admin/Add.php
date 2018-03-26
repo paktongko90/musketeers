@@ -45,8 +45,8 @@
 		}
 
 		public function add_perm_user(){
-			if($this->aauth->allow_user('1','1')){
-				echo "success ad permission to user";
+			if($this->aauth->allow_user('2','1')){
+				echo "success add permission to user";
 			}else{
 				echo "not success";
 			}
