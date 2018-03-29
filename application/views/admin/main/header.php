@@ -36,7 +36,7 @@
         		<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Authorization</a>
 				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				          <a class="dropdown-item" href="'.base_url('admin/authorization').'">Set Permission</a>
-				          <a class="dropdown-item" href="#">Add Pemission</a>
+				          <a class="dropdown-item" href="'.base_url('admin/authorization/listperm').'">Pemission List</a>
 				          <div class="dropdown-divider"></div>
 				          <a class="dropdown-item" href="#">Something else here</a>
 				        </div></li>';

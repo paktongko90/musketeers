@@ -32,4 +32,41 @@ class Authorization extends Admin_Controller{
 		}
 		redirect('admin/authorization');
 	}
+
+	public function addPermission(){
+		if(! $this->aauth->is_allowed('ADD_PERMISSION',$this->getCurrentUserID())){
+			echo "tak boleh view";
+		}else{
+			$this->loadTemplate($this->layout.'addpermission');
+		}
+	}
+
+	public function savePerm(){
+		
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('perm','Perm','required');
+			$this->form_validation->set_rules('permdesc','Permdesc','required');
+
+			if(! $this->form_validation->run()){
+				$this->session->set_flashdata('_error','All field are required');
+				redirect('/admin/authorization/addpermission');
+			}else{
+				if($this->aauth->create_perm($this->input->post('perm'),$this->input->post('permdesc'))){
+					redirect('/admin/authorization/listperm');
+				}else{
+					$this->aauth->print_errors();
+					echo '<br><a href ="create">Back</a>';
+				}
+			}
+	}
+
+	public function listPerm(){
+		if(! $this->aauth->is_allowed('LISTPERMISSION',$this->getCurrentUserID())){
+			echo "tak boleh view";
+		}else{
+			$permissions = $this->db->get('perms')->result();
+			$currentuser = $this->getCurrentUserId();
+			$this->loadTemplate($this->layout.'listpermission',compact('permissions','currentuser'));
+		}
+	}
 }
