@@ -1,40 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/plugins/morris.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url(); ?>assets/js/bootstrap.min.js" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
 </style>
-   
 </head>
-<body style="height:1500px">
-	<div class="container-fluid">
-	  <br>
-	  <h3>Sticky Navbar</h3>
-	  <p>A sticky navigation bar stays fixed at the top of the page when you scroll past it.</p>
-	  <p>Scroll this page to see the effect. <strong>Note:</strong> sticky-top does not work in IE11 and earlier.</p>
-	</div>
+<body>
 
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-	  <a class="navbar-brand" href="#">Logo</a>
-	  <ul class="navbar-nav">
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">Link</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">Link</a>
-	    </li>
-	  </ul>
-	</nav>
+<div class="header">
+  <h2>Scroll Down</h2>
+  <p>Scroll down to see the sticky effect.</p>
+</div>
 
-	<div class="container-fluid"><br>
-	  <p>Some example text. Some example text. Some example text. Some example text. Some example text.</p>
-	  <p>Some example text. Some example text. Some example text. Some example text. Some example text.</p>
-	  <p>Some example text. Some example text. Some example text. Some example text. Some example text.</p>
-	  <p>Some example text. Some example text. Some example text. Some example text. Some example text.</p>
-	</div>
+<div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="javascript:void(0)">News</a>
+  <a href="javascript:void(0)">Contact</a>
+</div>
+
+<div class="content">
+  <h3>Sticky Navigation Example</h3>
+  <p>The navbar will stick to the top when you reach its scroll position.</p>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>
