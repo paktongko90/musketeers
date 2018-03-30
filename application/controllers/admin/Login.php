@@ -19,7 +19,7 @@
 		}
 
 		public function action(){
-			if($this->aauth->login($this->input->post('username'),$this->input->post('password'),true)){
+			if($this->aauth->login($this->input->post('username'),$this->input->post('password'),FALSE)){
 				redirect('admin/dashboard');
 			}else{
 				redirect('admin/login');
