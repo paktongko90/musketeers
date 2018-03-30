@@ -44,7 +44,6 @@
 	class Public_Controller extends MY_Controller{
 		protected $header = 'public/main/header';
 		protected $footer = 'public/main/footer';
-	}
 
 		protected function loadHeader(){
 			$this->load->view($this->header);
@@ -58,6 +57,6 @@
 			$this->load->view($template,$data,$data);
 			$this->loadFooter();
 		}
-	}
 
+	}
  ?>
