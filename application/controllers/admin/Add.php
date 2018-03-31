@@ -13,7 +13,7 @@
 		}
 
 		public function create_group(){
-			if($this->aauth->create_group('Default','Default Group')){
+			if($this->aauth->create_group('Admin','Admin Group')){
 				echo "success create group";
 			}else{
 				echo "not success";
