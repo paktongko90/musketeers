@@ -69,7 +69,7 @@ body {
 
 <div class="content">
   <h3>Sticky Navigation Example</h3>
-  <p>The navbar will stick to the top when you reach its scroll position.</p>
+  <p>The navbar will stick to the top when you reach its scroll position.c</p>
 </div>
 
 <script>
