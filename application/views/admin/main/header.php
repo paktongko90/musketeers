@@ -38,7 +38,7 @@
 				          <a class="dropdown-item" href="'.base_url('admin/authorization').'">Set Permission</a>
 				          <a class="dropdown-item" href="'.base_url('admin/authorization/listperm').'">Pemission List</a>
 				          <div class="dropdown-divider"></div>
-				          <a class="dropdown-item" href="#">Something else here</a>
+				          <a class="dropdown-item" href="'.base_url('admin/authorization/listgroup').'">Group List</a>
 				        </div></li>';
 		}
 	   ?>

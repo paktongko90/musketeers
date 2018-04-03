@@ -78,4 +78,13 @@ class Authorization extends Admin_Controller{
 			redirect('/admin/authorization/listperm');
 		}
 	}
+
+	public function listGroup(){
+		if(! $this->aauth->is_allowed('LISTGROUP',$this->getCurrentUserId())){
+			echo "xboleh view";
+		}else{
+			$group = $this->db->get('groups')->result();
+			$this->loadTemplate($this->layout.'listgroup','group');
+		}
+	}
 }
