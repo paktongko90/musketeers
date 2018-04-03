@@ -11,7 +11,6 @@ body {
 </style>
 </head>
 <body>
-
 <div class="header">
   <h2>Scroll Down</h2>
   <p>Scroll down to see the sticky effect.</p>

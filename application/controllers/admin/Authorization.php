@@ -69,4 +69,13 @@ class Authorization extends Admin_Controller{
 			$this->loadTemplate($this->layout.'listpermission',compact('permissions','currentuser'));
 		}
 	}
+
+	public function deletePerm(){
+		if(! $this->aauth->is_allowed('DELETEPERMISSION',$this->getCurrentUserId())){
+			echo "xboleh delete";
+		}else{
+			$this->db->delete('perms',array('id' => $this->uri->segment(4)));
+			redirect('/admin/authorization/listperm');
+		}
+	}
 }

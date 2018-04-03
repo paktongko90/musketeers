@@ -7,7 +7,7 @@
 	<tr>
 		<td><?php echo $perm->name; ?></td>
 		<td><?php echo $perm->definition; ?></td>
-		<td><a type="button" href="<?php echo site_url('admin/authorization/deletepermission/'.$perm->id); ?>"> <i class="fa fa-close"></i></a></td>
+		<td><a type="button" href="<?php echo site_url('admin/authorization/deleteperm/'.$perm->id); ?>"> <i class="fa fa-close"></i></a></td>
 	</tr>
 	<?php } ?>
 </table>
