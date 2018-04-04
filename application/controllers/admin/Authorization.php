@@ -13,7 +13,9 @@ class Authorization extends Admin_Controller{
 		if(! $this->aauth->is_allowed('AUTHORIZATION',$this->getCurrentUserID())){
 			echo "tak boleh view";
 		}else{
-			$this->loadTemplate($this->layout.'index');
+			$users = $this->db->get('users')->result();
+			$permissions = $this->db->get('perms')->result();
+			$this->loadTemplate($this->layout.'index',compact('users','permissions'));
 		}
 	}
 
@@ -42,22 +44,21 @@ class Authorization extends Admin_Controller{
 	}
 
 	public function savePerm(){
-		
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules('perm','Perm','required');
-			$this->form_validation->set_rules('permdesc','Permdesc','required');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('perm','Perm','required');
+		$this->form_validation->set_rules('permdesc','Permdesc','required');
 
-			if(! $this->form_validation->run()){
-				$this->session->set_flashdata('_error','All field are required');
-				redirect('/admin/authorization/addpermission');
+		if(! $this->form_validation->run()){
+			$this->session->set_flashdata('_error','All field are required');
+			redirect('/admin/authorization/addpermission');
+		}else{
+			if($this->aauth->create_perm($this->input->post('perm'),$this->input->post('permdesc'))){
+				redirect('/admin/authorization/listperm');
 			}else{
-				if($this->aauth->create_perm($this->input->post('perm'),$this->input->post('permdesc'))){
-					redirect('/admin/authorization/listperm');
-				}else{
-					$this->aauth->print_errors();
-					echo '<br><a href ="create">Back</a>';
-				}
+				$this->aauth->print_errors();
+				echo '<br><a href ="create">Back</a>';
 			}
+		}
 	}
 
 	public function listPerm(){
@@ -84,7 +85,41 @@ class Authorization extends Admin_Controller{
 			echo "xboleh view";
 		}else{
 			$group = $this->db->get('groups')->result();
-			$this->loadTemplate($this->layout.'listgroup','group');
+			$this->loadTemplate($this->layout.'listgroup',array('group' => $group));
+		}
+	}
+
+	public function createGroup(){
+		if(! $this->aauth->is_allowed('CREATEPERMISSION', $this->getCurrentUserId())){
+			echo "x boleh create";
+		}else{
+			$this->loadTemplate($this->layout.'addgroup');
+		}
+	}
+
+	public function saveGroup(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('group','Group','required');
+		$this->form_validation->set_rules('groupdesc','Groupdesc','required');
+
+		if(! $this->form_validation->run()){
+			$this->session->set_flashdata('_error','All field are required');
+			redirect('/admin/authorization/creategroup');
+		}else{
+			if($this->aauth->create_group($this->input->post('group'),$this->input->post('groupdesc'))){
+				redirect('/admin/authorization/listgroup');
+			}else{
+				$this->aauth->print_errors();
+			}
+		}
+	}
+
+	public function deleteGroup(){
+		if(! $this->aauth->is_allowed('DELETEGROUP', $this->getCurrentUserId())){
+			echo "xboleh delete";
+		}else{
+			$this->db->delete('groups',array('id' => $this->uri->segment(4)));
+			redirect('/admin/authorization/listGroup');
 		}
 	}
 }

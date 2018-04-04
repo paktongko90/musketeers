@@ -2,7 +2,7 @@
 <?php echo form_open('admin/authorization/setpermission'); ?>
 	User<br>
 	<select name="user_id">
-		<?php foreach ($this->db->get('users')->result() as $user) { ?>
+		<?php foreach ($users as $user) { ?>
 		<option value="<?php echo $user->id; ?>"><?php echo $user->email ?></option>
 		<?php } ?>
 	</select>
