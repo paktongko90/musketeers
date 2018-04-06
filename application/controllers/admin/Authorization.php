@@ -132,7 +132,6 @@ class Authorization extends Admin_Controller{
 
 			$exists = $this->db->get_where('perm_to_group',array('group_id' => $this->input->post('group_id'),'perm_id' => $module))->row();
 			if(count($exists) == 0 ) {
-
 				$this->db->insert('perm_to_group',$data);
 			}
 		}
