@@ -122,4 +122,20 @@ class Authorization extends Admin_Controller{
 			redirect('/admin/authorization/listGroup');
 		}
 	}
+
+	public function setpermGroup(){
+		foreach($this->input->post('modules') as $module) {
+			$data = array(
+				'perm_id' => $module,
+				'group_id' => $this->input->post('group_id')
+				);
+
+			$exists = $this->db->get_where('perm_to_group',array('group_id' => $this->input->post('group_id'),'perm_id' => $module))->row();
+			if(count($exists) == 0 ) {
+
+				$this->db->insert('perm_to_group',$data);
+			}
+		}
+		redirect('admin/authorization');
+	}
 }
