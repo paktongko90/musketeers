@@ -137,4 +137,8 @@ class Authorization extends Admin_Controller{
 		}
 		redirect('admin/authorization');
 	}
+
+	public function userGroup(){
+		
+	}
 }

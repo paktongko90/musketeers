@@ -26,3 +26,16 @@
 	<?php } ?>
 	<input type="submit" value="Set Permission to Group">
 <?php echo form_close();?>
+
+<h4>Assign User to Group</h4>
+<?php echo form_open('admin/authorization/userroup'); ?>
+	<select>
+		<?php foreach ($this->db->get('users')->result() as $user) {?>
+		<option value="<?php echo $user->id; ?>"><?php echo $user->email; ?></option>
+		<?php } ?>
+	</select>
+	<br>List of Group<br>
+	<?php foreach ($this->db->get('groups')->result() as $group) { ?>
+	<input type="checkbox" name="modules" value="<?php echo $group->id; ?>"><span><?php echo $group->definition ?></span><br>
+	<?php } ?>
+<?php echo form_close(); ?>
