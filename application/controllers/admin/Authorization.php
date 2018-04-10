@@ -139,6 +139,16 @@ class Authorization extends Admin_Controller{
 	}
 
 	public function userGroup(){
-		
+		foreach ($this->input->post('modules') as $module) {
+			$data = array(
+				'group_id' => $module,
+				'user_id' => $this->input->post('user_id')
+			);
+			$exists = $this->db->get_where('user_to_group',array('user_id' => $this->input->post('user_id'),'group_id' => $module))->row();
+			if(count($exist) == 0){
+				$this->db->insert('user_to_group',$data);
+			} 
+		}
+		redirect('admin/authorization');
 	}
 }
