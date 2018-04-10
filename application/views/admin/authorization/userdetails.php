@@ -1,4 +1,4 @@
-	<?php echo $userid; ?>
+	<?php echo $users->id; ?>
 	<br>List of Permission of <?php echo $users->username; ?><br>
 	<?php 
 	echo form_open('admin/authorization/deletepermuser');
