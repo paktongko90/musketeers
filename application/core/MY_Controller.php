@@ -6,7 +6,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->library("Aauth");
-			$this->load->model('User_Model');
+			$this->load->model('user_model');
 		}
 	}
 

@@ -9,7 +9,7 @@
 				if(!$this->aauth->is_allowed('VIEW_USER',$this->getCurrentUserId())){
 					$this->sendToLoginPage();
 				}else{
-					$users = $this->User_Model->all();
+					$users = $this->user_model->all();
 					$currentuser = $this->getCurrentUserId();
 					$this->loadTemplate($this->layout.'/index',compact('users','currentuser'));
 				}

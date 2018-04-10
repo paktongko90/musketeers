@@ -24,8 +24,7 @@ class User_model extends CI_Model {
 		$this->db->from('user_to_group');
 		$this->db->join('groups','user_to_group.group_id = groups.id');
 		$this->db->where('user_to_group.user_id',$user_id);
-
+		
 		return $this->db->get()->result();
 	}
-
 }

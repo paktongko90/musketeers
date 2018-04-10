@@ -7,6 +7,7 @@ class Authorization extends Admin_Controller{
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('User_Model');
 	}
 
 	public function index(){
@@ -153,7 +154,10 @@ class Authorization extends Admin_Controller{
 	}
 
 	public function setuserbasepermission(){
-		$userid = $this->uri->segment(4);
-		echo $userid;
+		
+			$userid = $this->uri->segment(4);
+			$permissions = $this->user_model->getPermissions($this->uri->segment(4));
+			$user = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();;
+			$this->loadTemplate($this->layout.'userdetails',compact('permissions','user'));
 	}
 }

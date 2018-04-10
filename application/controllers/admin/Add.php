@@ -21,7 +21,7 @@
 		}
 
 		public function add_member(){
-			if($this->aauth->add_member('1','1')){
+			if($this->aauth->add_member('2','1')){
 				echo "success add member to group";
 			}else{
 				echo "not success";
@@ -37,7 +37,7 @@
 		}
 
 		public function add_perm_group(){
-			if($this->aauth->allow_group('2','2')){
+			if($this->aauth->allow_group('1','2')){
 				echo "success add permission to group";
 			}else{
 				echo "not success";
@@ -45,7 +45,7 @@
 		}
 
 		public function add_perm_user(){
-			if($this->aauth->allow_user('2','2')){
+			if($this->aauth->allow_user('1','2')){
 				echo "success add permission to user";
 			}else{
 				echo "not success";
