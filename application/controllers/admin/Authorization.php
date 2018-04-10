@@ -151,4 +151,9 @@ class Authorization extends Admin_Controller{
 		}
 		redirect('admin/authorization');
 	}
+
+	public function setuserbasepermission(){
+		$userid = $this->uri->segment(4);
+		echo $userid;
+	}
 }

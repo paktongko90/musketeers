@@ -6,10 +6,10 @@
 	foreach ($users as $userlist) {
  ?>
 	<tr>
-		<td><?php echo $userlist->email; ?></td>
+		<td><a href='<?php echo base_url('admin/authorization/setuserbasepermission/'.$userlist->id); ?>'><?php echo $userlist->email; ?></a></td>
 		<td><?php echo $userlist->username; ?></td>
 		<td>
-			<a href='<?php echo base_url('admin/user/deleteuser/'.$userlist->id); ?>'> 
+			<a  href='<?php echo base_url('admin/user/deleteuser/'.$userlist->id); ?>'> 
 				<?php
 					if($this->aauth->get_user()->id == $userlist->id){
 						echo '';
