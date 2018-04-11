@@ -159,4 +159,12 @@ class Authorization extends Admin_Controller{
 			$users = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();;
 			$this->loadTemplate($this->layout.'userdetails',compact('permissions','users','userid'));
 	}
+
+	public function deletepermuser(){
+		foreach($this->input->post('permissions') as $permission) {
+			//delete permissions
+			$this->db->delete('perm_to_user',array('perm_id' => $permission, 'user_id' => $this->input->post('user_id')));
+		}
+		redirect('admin/authorization/setuserbasepermission/'.$this->input->post('user_id'));
+	}
 }
