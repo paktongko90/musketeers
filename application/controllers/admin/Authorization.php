@@ -156,8 +156,9 @@ class Authorization extends Admin_Controller{
 	public function setuserbasepermission(){
 			
 			$permissions = $this->user_model->getPermissions($this->uri->segment(4));
+			$groups = $this->user_model->getGroup($this->uri->segment(4));
 			$users = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();;
-			$this->loadTemplate($this->layout.'userdetails',compact('permissions','users','userid'));
+			$this->loadTemplate($this->layout.'userdetails',compact('permissions','users','userid','groups'));
 	}
 
 	public function deletepermuser(){
