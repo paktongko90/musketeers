@@ -21,7 +21,10 @@
 </style>
    
 </head>
-<body>
+<?php
+if($this->aauth->is_loggedin()) {
+    ?>
+  <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 	  <a class="navbar-brand" href="<?php echo site_url('admin/dashboard'); ?>"><?php echo $this->aauth->get_user()->username; ?>'s Dashboard</a>
 	  <ul class="navbar-nav">
@@ -44,3 +47,4 @@
 	   ?>
 	  </ul>
 	</nav>
+	<?php } ?>
