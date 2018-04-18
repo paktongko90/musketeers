@@ -157,7 +157,7 @@ class Authorization extends Admin_Controller{
 			
 			$permissions = $this->user_model->getPermissions($this->uri->segment(4));
 			$groups = $this->user_model->getGroup($this->uri->segment(4));
-			$users = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();;
+			$users = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();
 			$this->loadTemplate($this->layout.'userdetails',compact('permissions','users','userid','groups'));
 	}
 
@@ -167,5 +167,10 @@ class Authorization extends Admin_Controller{
 			$this->db->delete('perm_to_user',array('perm_id' => $permission, 'user_id' => $this->input->post('user_id')));
 		}
 		redirect('admin/authorization/setuserbasepermission/'.$this->input->post('user_id'));
+	}
+
+	public function groupPerm(){
+		$permissions = $this->user_model->getPermissiongroup($this->uri->segment(4));
+		$group = $this->db->get_where('groups',array('id' => $this->uri->segment(4)));
 	}
 }

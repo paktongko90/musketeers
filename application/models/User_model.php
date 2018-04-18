@@ -27,4 +27,13 @@ class User_model extends CI_Model {
 		
 		return $this->db->get()->result();
 	}
+
+	public function getPermissionsgroup($group_id){
+		$this->db->select('*');
+		$this->db->from('perm_to_group');
+		$this->db->join('perms','perm_to_group.perm_id = perms.id');
+		$this->db->where('perm_to_group.group_id',$group_id);
+
+		return $this->db->get()->result();
+	}
 }
