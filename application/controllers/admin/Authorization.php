@@ -170,7 +170,8 @@ class Authorization extends Admin_Controller{
 	}
 
 	public function groupPerm(){
-		$permissions = $this->user_model->getPermissiongroup($this->uri->segment(4));
-		$group = $this->db->get_where('groups',array('id' => $this->uri->segment(4)));
+		$permissions = $this->user_model->getPermissionsgroup($this->uri->segment(4));
+		$groups = $this->db->get_where('groups',array('id' => $this->uri->segment(4)));
+		$this->loadTemplate($this->layout.'groupdetails',compact('permissions','groups'));
 	}
 }
