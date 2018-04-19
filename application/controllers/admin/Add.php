@@ -13,7 +13,7 @@
 		}
 
 		public function create_group(){
-			if($this->aauth->create_group('Admin','Admin Group')){
+			if($this->aauth->create_group('Public','Public Group')){
 				echo "success create group";
 			}else{
 				echo "not success";
@@ -37,7 +37,7 @@
 		}
 
 		public function add_perm_group(){
-			if($this->aauth->allow_group('1','2')){
+			if($this->aauth->allow_group('2','2')){
 				echo "success add permission to group";
 			}else{
 				echo "not success";
