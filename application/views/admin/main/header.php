@@ -46,5 +46,10 @@ if($this->aauth->is_loggedin()) {
 		}
 	   ?>
 	  </ul>
+	  <ul class="nav navbar-nav ml-auto">
+		   	<li >
+		   	<a href="<?php echo site_url('admin/login/logout') ?>" class ="nav-link">Log Out</a>
+		   </li>
+	  </ul>
 	</nav>
 	<?php } ?>
