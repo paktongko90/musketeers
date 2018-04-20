@@ -171,7 +171,15 @@ class Authorization extends Admin_Controller{
 
 	public function groupPerm(){
 		$permissions = $this->user_model->getPermissionsgroup($this->uri->segment(4));
-		$groups = $this->db->get_where('groups',array('id' => $this->uri->segment(4)));
+		$groups = $this->db->get_where('groups',array('id' => $this->uri->segment(4)))->row();
 		$this->loadTemplate($this->layout.'groupdetails',compact('permissions','groups'));
 	}
+
+	public function deletepermgrp(){
+		foreach ($this->input->post('grppermission') as $grpperm) {
+			$this->db->delete('perm_to_group',array('perm_id' => $grpperm, 'group_id' => $this->input->post('group_id')));
+		}
+		redirect('admin/authorization/groupPerm/'.$this->input->post('group_id'));
+	}
+
 }
