@@ -56,7 +56,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <input type="submit" name="submit" value="Log In" class="btn btn-lg btn-success btn-block">
+                                <input type="submit" name="submit" value="Login" class="btn btn-lg btn-success btn-block">
                         
                             </fieldset>
                         <?php echo form_close(); ?>
