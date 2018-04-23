@@ -51,4 +51,9 @@
 				echo "not success";
 			}
 		}
+
+		public function resetlogin(){
+			$this->aauth->reset_login_attempts();
+			echo "reset berhaya";
+		}
 	}
