@@ -1,10 +1,27 @@
+			</div>
+                <!-- /.col-lg-12 -->
+        </div>
+</div>
+<!-- /# page-wrapper -->
+</div>
+<!-- /#wrapper -->
 
-	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris-data.js"></script>
+
+<script src="<?php echo base_url();?>assets/admin/template/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="<?php echo base_url();?>assets/admin/template/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="<?php echo base_url();?>assets/admin/template/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="<?php echo base_url();?>assets/admin/template/vendor/raphael/raphael.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/template/vendor/morrisjs/morris.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/template/data/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="<?php echo base_url();?>assets/admin/template/dist/js/sb-admin-2.js"></script>
 
 </body>
 
