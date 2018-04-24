@@ -11,10 +11,17 @@
 
 <title>Admin Page</title>
 
+<!-- Bootstrap Core CSS -->
 <link href="<?php echo base_url();?>assets/admin/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
 <link href="<?php echo base_url();?>assets/admin/template/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+<!-- DataTables CSS -->
+<link href="<?php echo base_url();?>assets/admin/template/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link href="<?php echo base_url();?>assets/admin/template/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="<?php echo base_url();?>assets/admin/template/dist/css/sb-admin-2.css" rel="stylesheet">
@@ -81,8 +88,11 @@ if($this->aauth->is_loggedin()) {
                         <?php 
                         if($this->aauth->is_admin()){
                         	echo '<li>
-                            <a href="#"><i class="fa fa-cog fa-fw"></i> Authentication<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cog fa-fw"></i> Administration<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="'.base_url('admin/authorization/listperm').'">permission List</a>
+                                </li>
                                 <li>
                                     <a href="'.base_url('admin/user').'">List of User</a>
                                 </li>
@@ -90,46 +100,22 @@ if($this->aauth->is_loggedin()) {
                                     <a href="'.base_url('admin/authorization/listgroup').'">List of Group</a>
                                 </li>
                                 <li>
-                                    <a href="'.base_url('admin/authorization/listperm').'">permission List</a>
+                                    <a href="'.base_url('admin/authorization').'">Assign Permission</a>
                                 </li>
                                 <li>
-                                    <a href="'.base_url('admin/authorization').'">Assign Permission</a>
+                                    <a href="#">Assign permission to user</a>
+                                </li>
+                                <li>
+                                    <a href="#">Assign permission to group</a>
+                                </li>
+                                <li>
+                                    <a href="#">Assign user to group</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>';
                     	}
                          ?>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
