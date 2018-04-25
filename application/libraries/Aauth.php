@@ -704,7 +704,7 @@ class Aauth {
 			$user_id = $this->aauth_db->insert_id();
 
 			// set default group
-			$this->add_member($user_id, $this->config_vars['default_group']);
+			//$this->add_member($user_id, $this->config_vars['default_group']);
 
 			// if verification activated
 			if($this->config_vars['verification'] && !$this->is_admin()){

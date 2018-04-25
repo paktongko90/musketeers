@@ -42,7 +42,11 @@
 					redirect('/admin/user/create');
 				}else{
 					if($this->aauth->create_user($this->input->post('email'),$this->input->post('password'),$this->input->post('username'))){
-						$this->session->set_flashdata('_success','User created');
+						//assign user create to group
+						$user_id = $this->user_model->getUserid($this->input->post('email'));
+						foreach ($user_id as $userid) {
+							$this->aauth->add_member($userid->id,'3');
+						}
 						redirect('/admin/user');
 					}else{
 						$this->aauth->print_errors();
