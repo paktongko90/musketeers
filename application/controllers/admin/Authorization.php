@@ -182,4 +182,11 @@ class Authorization extends Admin_Controller{
 		redirect('admin/authorization/groupPerm/'.$this->input->post('group_id'));
 	}
 
+	public function userdetail(){
+		//$id = $this->uri->segment(4);
+		//echo $id;
+		$users = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();
+		$this->loadTemplate($this->layout.'userprofile',compact('id','users'));
+	}
+
 }
