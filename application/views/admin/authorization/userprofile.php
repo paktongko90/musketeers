@@ -1,5 +1,3 @@
-hello world
-
 <?php 
-echo $id;
+echo $id->email;
 ?>

@@ -186,7 +186,7 @@ class Authorization extends Admin_Controller{
 		$id = $this->uri->segment(4);
 		//echo $id;
 		$users = $this->db->get_where('users',array('id' => $this->uri->segment(4)))->row();
-		$this->loadTemplate($this->layout.'userprofile',$id);
+		$this->loadTemplate($this->layout.'userprofile',array('id' => $users));
 	}
 
 }
